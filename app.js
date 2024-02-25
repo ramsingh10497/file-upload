@@ -1,11 +1,13 @@
 const express = require("express");
 const userRoutes = require("./src/routes/userRoutes");
+const uploadRoutes = require("./src/routes/uploadRoutes");
 
 const app = express();
 
 app.use(express.json());
 
 app.use("/api", userRoutes);
+app.use("/api", uploadRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
